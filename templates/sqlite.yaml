@@ -1,0 +1,15 @@
+﻿apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sqlite
+  labels:
+    cattle.io/creator: norman
+spec:
+  storageClassName: nfs-client
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 512Mi
+  volumeMode: Filesystem
+status: {}

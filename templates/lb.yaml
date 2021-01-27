@@ -1,0 +1,16 @@
+﻿apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lb
+  labels:
+    cattle.io/creator: norman
+spec:
+  rules:
+  - host: {{ .Values.loadBalancerFQDN | quote }}
+    http:
+      paths:
+      - backend:
+          serviceName: webserver
+          servicePort: 8000
+status:
+  loadBalancer: {}
